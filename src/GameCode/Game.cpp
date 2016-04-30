@@ -77,6 +77,11 @@ void Game::gameLoop(){
 					if(lives != 0)
 						e->playSound("./sounds/die.flac", 0);
 					std::cout << "COLLISIONMANAGER:" << e->getMillis() << " Failure! Life lost. Lives left: " << lives << ". Restarting..." << std::endl;
+//					for(int unsigned i = 0;i <= lm->lines.size() - 1; i++){
+//						if(fabs(lm->lines.at(i)->y - 87.5) < 0.001 ||fabs(lm->lines.at(i)->y - 93.75) < 0.001 ||fabs(lm->lines.at(i)->y - 75) < 0.001)
+//							std::cout << "erasing:" << lm->lines.at(i)->y << std::endl;
+//							lm->lines.erase(lm->lines.begin() + i);
+//					}
 					lm->clearAll();
 					restart(lm);
 

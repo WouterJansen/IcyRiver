@@ -42,7 +42,7 @@ void ExtraManager::update(int lives, int projectiles){
 					l->y = randChance*linesize;
 					randChance = rand() % (int)(80/linesize);
 					l->x = 5 + randChance*linesize;
-					std::cout << "GAME:" << e->getMillis() << " EXTRAMANAGER: Extra Life Spawned!" << std::endl;
+					std::cout << "EXTRAMANAGER:" << e->getMillis() << " Extra Life Spawned!" << std::endl;
 					timeVisible = e->getMillis();
 				}
 			}else if(randChance == 2 || randChance == 3 || randChance == 4){
@@ -51,7 +51,7 @@ void ExtraManager::update(int lives, int projectiles){
 				b->y = randChance*linesize;
 				randChance = rand() % (int)(80/linesize);
 				b->x = 5 + randChance*linesize;
-				std::cout << "GAME:" << e->getMillis() << " EXTRAMANAGER: Bonus Spawned!" << std::endl;
+				std::cout << "EXTRAMANAGER:" << e->getMillis() << " Bonus Spawned!" << std::endl;
 				timeVisible = e->getMillis();
 			}else if(randChance == 5 || randChance == 6 || randChance == 7){
 				if(projectiles != 3){
@@ -60,7 +60,7 @@ void ExtraManager::update(int lives, int projectiles){
 					p->y = randChance*linesize;
 					randChance = rand() % (int)(80/linesize);
 					p->x = 5 + randChance*linesize;
-					std::cout << "GAME:" << e->getMillis() << " EXTRAMANAGER: Projectile Spawned!" << std::endl;
+					std::cout << "EXTRAMANAGER:" << e->getMillis() << " Projectile Spawned!" << std::endl;
 					timeVisible = e->getMillis();
 				}
 			}
@@ -68,7 +68,7 @@ void ExtraManager::update(int lives, int projectiles){
 		}
 	}else{
 		if(e->getMillis() - timeVisible >= 10000){
-			std::cout << "GAME:" << e->getMillis() << " EXTRAMANAGER: 10 seconds past! Extra despawning." << std::endl;
+			std::cout << "EXTRAMANAGER:" << e->getMillis() << " 10 seconds past! Extra despawning." << std::endl;
 			reset();
 		}
 	}

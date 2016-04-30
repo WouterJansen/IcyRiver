@@ -214,7 +214,6 @@ void EngineSDL::logError(std::ostream &os, const std::string &msg){
 void EngineSDL::increaseResolution(){
 	RECT desktop;
 	GetWindowRect(GetDesktopWindow(), &desktop);
-	std::cout << desktop.right << std::endl;
 	if(width + 12 < desktop.right && height + 10 < desktop.bottom - 50){
 		width += 12;
 		height += 10;
