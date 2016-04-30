@@ -18,6 +18,8 @@ This git has the source code for the entire game. This is all contained in one C
 * Student: Wouter Jansen
 * University : Peter Hellinckx & Marc Ceulemans
 * This project uses the following libraries. 
-  * **SDL Image**:  https://www.libsdl.org/projects/SDL_image/
-  * **SDL TTF**:  https://www.libsdl.org/projects/SDL_ttf/
-  * **SDL Mixer**: https://www.libsdl.org/projects/SDL_mixer/
+  * **SDL2**: https://www.libsdl.org/
+  * **SDL2 Image**:  https://www.libsdl.org/projects/SDL_image/
+  * **SDL2 TTF**:  https://www.libsdl.org/projects/SDL_ttf/
+  * **SDL2 Mixer**: https://www.libsdl.org/projects/SDL_mixer/
+
