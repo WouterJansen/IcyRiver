@@ -13,6 +13,8 @@
 #include <string>
 #include <vector>
 
+namespace GAME{
+
 
 //abstract engine object
 class Engine {
@@ -47,4 +49,5 @@ public:
 	std::vector<float> transformSize(float w, float h);
 };
 
+}
 #endif /* SRC_WINDOW_H_ */

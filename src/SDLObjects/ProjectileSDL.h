@@ -16,13 +16,16 @@
 #include <vector>
 #include <string>
 
-class ProjectileSDL : public Projectile{
+namespace SDLGAME{
+
+class ProjectileSDL : public GAME::Projectile{
 public:
 	ProjectileSDL();
-	void visualize(Engine* e);
-	void displayProjectile(Engine* e,float xi, float yi);
+	void visualize(GAME::Engine* e);
+	void displayProjectile(GAME::Engine* e,float xi, float yi);
 	virtual ~ProjectileSDL();
 };
 
+}
 #endif /* SRC_PROJECTILESDL_H_ */
 

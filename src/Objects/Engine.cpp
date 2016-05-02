@@ -7,6 +7,8 @@
 
 #include "Engine.h"
 
+using namespace GAME;
+
 //abstract engine object
 Engine::Engine() {
 	fontLargeSize = 0;
@@ -35,4 +37,3 @@ std::vector<float> Engine::transformSize(float w, float h){
 	array.push_back(((h*100)/height)*height/640);
 	return array;
 }
-

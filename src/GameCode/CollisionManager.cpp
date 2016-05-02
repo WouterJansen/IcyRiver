@@ -7,6 +7,8 @@
 
 #include "CollisionManager.h"
 
+using namespace GAME;
+
 //Management object that has functionality to take care and look for collision of player and obstructions.
 CollisionManager::CollisionManager() {
 	// TODO Auto-generated constructor stub
@@ -59,10 +61,10 @@ bool CollisionManager::searchCollision(LineManager* lm,Penguin* pn){
 
 bool CollisionManager::searchProjectileCollision(Projectile* p,LineManager* lm){
 	if( lm->lines.empty() != true){
-			for (int unsigned i = 0; i < lm->lines.size(); ++i){ // checks all lines
-				if(lineChecker(lm->lines[i],p))
-					return true; //searches for collision
-			}
+		for (int unsigned i = 0; i < lm->lines.size(); ++i){ // checks all lines
+			if(lineChecker(lm->lines[i],p))
+				return true; //searches for collision
+		}
 	}
 	return false;
 }
@@ -88,8 +90,8 @@ float CollisionManager::lineChecker(Line* line,Penguin* pn){
 	if( line->obstructions.empty() != true){ // make sure line isn't empty
 		for (int unsigned i = 0; i < line->obstructions.size(); ++i){ // check for collision for each object of the line.
 			if( fabs(pn->y - line->y) < 0.001 // make sure that the player object's and the line are on the same height
-			&& (pn->x + pn->w) >= line->obstructions.at(i)->x
-			&& pn->x <= (line->obstructions.at(i)->x + line->obstructions.at(i)->w)){
+					&& (pn->x + pn->w) >= line->obstructions.at(i)->x
+					&& pn->x <= (line->obstructions.at(i)->x + line->obstructions.at(i)->w)){
 				return line->speed;
 			}
 		}
@@ -103,12 +105,12 @@ bool CollisionManager::lineChecker(Line* line,Projectile* p){
 	if( line->obstructions.empty() != true){ // make sure line isn't empty
 		for (int unsigned i = 0; i < line->obstructions.size(); ++i){ // check for collision for each object of the line.
 			if( fabs(p->y - line->y) < 0.001 // make sure that the player object's and the line are on the same height
-			&& (p->x + p->w) >= line->obstructions.at(i)->x
-			&& p->x <= (line->obstructions.at(i)->x + line->obstructions.at(i)->w)){
+					&& (p->x + p->w) >= line->obstructions.at(i)->x
+					&& p->x <= (line->obstructions.at(i)->x + line->obstructions.at(i)->w)){
 				if(line->type == 0){
-				delete(line->obstructions.at(i));
-				line->obstructions.erase(line->obstructions.begin() + i);
-				return true;
+					delete(line->obstructions.at(i));
+					line->obstructions.erase(line->obstructions.begin() + i);
+					return true;
 				}
 			}
 		}

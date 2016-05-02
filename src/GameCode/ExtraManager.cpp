@@ -7,6 +7,8 @@
 
 #include "ExtraManager.h"
 
+using namespace GAME;
+
 ExtraManager::ExtraManager(Factory* fi,Engine* ei,Background* bgi,int gameRatei, float linesizei) {
 	this->f = fi;
 	this->e = ei;

@@ -11,11 +11,14 @@
 #include "../Objects/Bonus.h"
 #include "../Objects/Engine.h"
 
-class BonusSDL : public Bonus {
+namespace SDLGAME{
+
+class BonusSDL : public GAME::Bonus {
 public:
 	BonusSDL();
 	virtual ~BonusSDL();
-	void visualize(Engine* e, int gameRate);
+	void visualize(GAME::Engine* e, int gameRate);
 };
 
+}
 #endif /* SRC_BONUSSDL_H_ */

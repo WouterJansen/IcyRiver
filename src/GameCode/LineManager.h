@@ -16,10 +16,14 @@
 #include <string>
 #include <deque>
 #include <vector>
+#include <cmath>
+#include <limits>
 #include "../Objects/Line.h"
 
 #ifndef OBSTRUCTIONMANAGER_H_
 #define OBSTRUCTIONMANAGER_H_
+
+namespace GAME{
 
 class LineManager {
 public:
@@ -37,6 +41,11 @@ public:
 	void clearAll();
 	void ObstructionSpawner(Line* line);
 	void moveDown();
+	std::vector<float> getFloaterLines();
 };
 
+}
+
 #endif /* OBSTRUCTIONMANAGER_H_ */
+
+

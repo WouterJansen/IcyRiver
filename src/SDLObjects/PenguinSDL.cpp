@@ -7,6 +7,9 @@
 
 #include "PenguinSDL.h"
 
+using namespace SDLGAME;
+
+
 PenguinSDL::PenguinSDL() {
 	// TODO Auto-generated constructor stub
 
@@ -16,7 +19,7 @@ PenguinSDL::~PenguinSDL() {
 	// TODO Auto-generated destructor stub
 }
 
-void PenguinSDL::visualize(Engine* e){
+void PenguinSDL::visualize(GAME::Engine* e){
 	e->getSize("./textures/penguin_forward_water.png",x,y,&w,&h);
 	if(floating == false){
 		if(dir == "Up")

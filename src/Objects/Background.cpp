@@ -7,6 +7,8 @@
 
 #include "Background.h"
 
+using namespace GAME;
+
 //abstract background object
 Background::Background() {
 	state = 1;

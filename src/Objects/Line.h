@@ -13,6 +13,8 @@
 #include "Background.h"
 #include <deque>
 
+namespace GAME{
+
 
 class Line {
 public:
@@ -26,5 +28,7 @@ public:
 	void clear();
 	void move();
 };
+
+}
 
 #endif /* SRC_LINE_H_ */

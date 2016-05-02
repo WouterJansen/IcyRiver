@@ -7,6 +7,8 @@
 
 #include "Obstruction.h"
 
+using namespace GAME;
+
 Obstruction::Obstruction() {
 	x = 100;
 	y = 100;

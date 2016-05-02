@@ -8,6 +8,9 @@
 //engine object that takes care of all rendering.
 #include "EngineSDL.h"
 
+using namespace SDLGAME;
+
+
 EngineSDL::EngineSDL(){
 	ren = 0;
 	win  = 0;

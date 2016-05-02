@@ -17,6 +17,9 @@
 #include "Life.h"
 #include "Bonus.h"
 
+
+namespace GAME{
+
 class Factory {
 public:
 	Factory();
@@ -30,5 +33,7 @@ public:
 	virtual Projectile* createProjectile() = 0;
 	Line* createLine(float newy, int newtype, float newspeed);
 };
+
+}
 
 #endif /* FACTORY_H_ */

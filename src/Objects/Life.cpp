@@ -7,6 +7,8 @@
 
 #include "Life.h"
 
+using namespace GAME;
+
 Life::Life() {
 	x = 0;
 	y = 0;

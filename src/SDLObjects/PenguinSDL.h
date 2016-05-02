@@ -13,11 +13,14 @@
 #include <iostream>
 #include "../Objects/Penguin.h"
 
-class PenguinSDL : public Penguin{
+namespace SDLGAME{
+
+class PenguinSDL : public GAME::Penguin{
 public:
 	PenguinSDL();
 	virtual ~PenguinSDL();
-	void visualize(Engine* e);
+	void visualize(GAME::Engine* e);
 };
 
+}
 #endif /* PENGUINSDL_H_ */

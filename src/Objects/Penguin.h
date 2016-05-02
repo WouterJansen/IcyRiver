@@ -14,6 +14,9 @@
 #include <string>
 #include <deque>
 
+namespace GAME{
+
+
 class Penguin{
 public:
 	Penguin();
@@ -36,5 +39,7 @@ public:
 	void move(std::string dir, std::string dirM,float speed);
 	void moveProjectile();
 };
+
+}
 
 #endif /* PENGUIN_H_ */

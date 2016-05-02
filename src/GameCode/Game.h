@@ -26,6 +26,8 @@
 #include <map>
 #include "LineManager.h"
 
+namespace GAME{
+
 class Game {
 public:
 	Game(Factory* fnew, int height, int width, int gameRatenew);
@@ -61,6 +63,8 @@ public:
 	void lose(LineManager* lm,ExtraManager* em);
 	void reset(ExtraManager* em);
 };
+
+}
 
 #endif /* GAME_H_ */
 

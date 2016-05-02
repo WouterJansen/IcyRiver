@@ -7,6 +7,9 @@
 
 #include "Line.h"
 
+using namespace GAME;
+
+
 Line::Line(float newy, int newtype, float newspeed) {
 	y = newy;
 	type = newtype;

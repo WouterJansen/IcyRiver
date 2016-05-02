@@ -7,6 +7,8 @@
 
 #include "Start.h"
 
+using namespace GAME;
+
 Start::Start() {
 	// TODO Auto-generated constructor stub
 
@@ -18,8 +20,8 @@ Start::~Start() {
 
 int main(int argc, char* args[]) {
 	srand(time(0));
-	Factory* f = new FactorySDL();
-	Game* g = new Game(f,640,800,60);
+	GAME::Factory* f = new SDLGAME::FactorySDL();
+	GAME::Game* g = new Game(f,640,800,60);
 	g->gameLoop();
 	delete(g);
 	delete(f);

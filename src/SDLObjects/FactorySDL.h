@@ -24,18 +24,22 @@
 #include "../Objects/Bonus.h"
 #include "BonusSDL.h"
 
-class FactorySDL : public Factory {
+namespace SDLGAME{
+
+
+class FactorySDL : public GAME::Factory {
 public:
 	FactorySDL();
 	virtual ~FactorySDL();
-	Engine* createEngine();
-	Penguin* createPenguin();
-	Obstruction* createObstruction();
-	Background* createBackground();
-	Life* createLife();
-	Bonus* createBonus();
-	Projectile* createProjectile();
+	GAME::Engine* createEngine();
+	GAME::Penguin* createPenguin();
+	GAME::Obstruction* createObstruction();
+	GAME::Background* createBackground();
+	GAME::Life* createLife();
+	GAME::Bonus* createBonus();
+	GAME::Projectile* createProjectile();
 };
 
+}
 #endif /* FACTORYSDL_H_ */
 

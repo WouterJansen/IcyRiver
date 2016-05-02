@@ -7,6 +7,9 @@
 
 #include "Bonus.h"
 
+using namespace GAME;
+
+
 Bonus::Bonus() {
 	x = 0;
 	y = 0;

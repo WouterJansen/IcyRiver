@@ -16,6 +16,10 @@
 #include <vector>
 #include <string>
 
+namespace GAME{
+
+
+
 class Obstruction{
 public:
 	Obstruction();
@@ -29,4 +33,5 @@ public:
 	void setVariation(int type);
 };
 
+}
 #endif /* OBSTRUCTION_H_ */

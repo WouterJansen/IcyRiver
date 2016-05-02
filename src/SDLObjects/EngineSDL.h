@@ -25,8 +25,10 @@
 #include <map>
 #include "wtypes.h"
 
+namespace SDLGAME{
+
 //engine object that takes care of all rendering.
-class EngineSDL : public Engine{
+class EngineSDL : public GAME::Engine{
 public:
 	EngineSDL();
 	virtual ~EngineSDL();
@@ -57,5 +59,7 @@ public:
 	void clearFrame(); //clear the renderer.
 	void renderFrame();// render the rendered textures out.
 };
+
+}
 
 #endif /* SRC_WINDOWSDL_H_ */

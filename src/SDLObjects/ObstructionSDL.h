@@ -16,12 +16,15 @@
 #include <vector>
 #include <string>
 
+namespace SDLGAME{
 
-class ObstructionSDL : public Obstruction{
+class ObstructionSDL : public GAME::Obstruction{
 public:
 	ObstructionSDL();
 	virtual ~ObstructionSDL();
-	void visualize(Engine* e,bool flip);
+	void visualize(GAME::Engine* e,bool flip);
 };
+
+}
 
 #endif /* OBSTRUCTIONSDL_H_ */

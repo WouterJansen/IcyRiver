@@ -12,12 +12,16 @@
 #include "../Objects/Life.h"
 #include <iostream>
 
-class LifeSDL : public Life {
+namespace SDLGAME{
+
+class LifeSDL : public GAME::Life {
 public:
 	LifeSDL();
 	virtual ~LifeSDL();
-	void visualize(Engine* e, int gameRate);
-	void displayLife(Engine* e,float xi, float yi);
+	void visualize(GAME::Engine* e, int gameRate);
+	void displayLife(GAME::Engine* e,float xi, float yi);
 };
+
+}
 
 #endif /* SRC_LIFESDL_H_ */

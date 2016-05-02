@@ -16,6 +16,9 @@
 #include <vector>
 #include <string>
 
+namespace GAME{
+
+
 class Projectile {
 public:
 	Projectile();
@@ -27,5 +30,7 @@ public:
 	virtual void displayProjectile(Engine* e, float xi, float yi) = 0;
 	virtual ~Projectile();
 };
+
+}
 
 #endif /* SRC_PROJECTILE_H_ */

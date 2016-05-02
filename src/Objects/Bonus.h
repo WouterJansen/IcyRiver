@@ -10,6 +10,9 @@
 
 #include "Engine.h"
 
+namespace GAME{
+
+
 class Bonus {
 public:
 	Bonus();
@@ -22,5 +25,7 @@ public:
 	virtual ~Bonus();
 	virtual void visualize(Engine* e, int gameRate) = 0;
 };
+
+}
 
 #endif /* SRC_BONUS_H_ */

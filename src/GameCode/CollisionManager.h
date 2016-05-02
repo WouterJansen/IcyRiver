@@ -17,6 +17,8 @@
 #include <cmath>
 #include <limits>
 
+namespace GAME{
+
 //Management object that has functionality to take care and look for collision of player and obstructions.
 class CollisionManager {
 public:
@@ -31,3 +33,4 @@ public:
 
 #endif /* COLLISIONMANAGER_H_ */
 
+}

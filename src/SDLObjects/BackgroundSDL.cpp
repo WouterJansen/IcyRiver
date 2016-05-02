@@ -7,6 +7,8 @@
 
 #include "BackgroundSDL.h"
 
+using namespace SDLGAME;
+
 //SDL Class of the background object
 BackgroundSDL::BackgroundSDL() {
 }
@@ -16,7 +18,7 @@ BackgroundSDL::~BackgroundSDL() {
 }
 
 //render the image on screen
-void BackgroundSDL::visualize(Engine* e,int rate, int speed){
+void BackgroundSDL::visualize(GAME::Engine* e,int rate, int speed,std::vector<float> lines){
 	float w;
 	float h;
 	// render the tiled water animation for the entire window.
@@ -36,9 +38,16 @@ void BackgroundSDL::visualize(Engine* e,int rate, int speed){
 	}
 	e->getSize("./textures/background_bar.png",0,0,&w,&h);
 	e->renderTexture("./textures/background_bar.png", 0, 100 - h, w, h,false);
+
+	if(lines.empty() == false){
+		for(int unsigned i = 0;i <= lines.size() - 1; i++){
+			e->getSize("./textures/debris.png",0,0,&w,&h);
+			e->renderTexture("./textures/debris.png", 0, lines[i], w, h,false);
+		}
+	}
 }
 
-void BackgroundSDL::visualizeOnlyWater(Engine* e,int rate, int speed){
+void BackgroundSDL::visualizeOnlyWater(GAME::Engine* e,int rate, int speed){
 	float w;
 	float h;
 	// render the tiled water animation for the entire window.

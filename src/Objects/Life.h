@@ -10,6 +10,8 @@
 
 #include "Engine.h"
 
+namespace GAME{
+
 class Life {
 public:
 	Life();
@@ -23,5 +25,7 @@ public:
 	virtual void visualize(Engine* e, int gameRate) = 0;
 	virtual void displayLife(Engine* e, float xi, float yi) = 0;
 };
+
+}
 
 #endif /* SRC_LIFE_H_ */

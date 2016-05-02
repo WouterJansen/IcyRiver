@@ -15,6 +15,8 @@
 #include "../Objects/Background.h"
 #include "../Objects/Factory.h"
 
+namespace GAME{
+
 class ExtraManager {
 public:
 	ExtraManager(Factory* fi,Engine* ei,Background* bgi,int gameRatei, float linesizei);
@@ -34,4 +36,7 @@ public:
 	void moveDown();
 };
 
+}
+
 #endif /* SRC_EXTRAMANAGER_H_ */
+

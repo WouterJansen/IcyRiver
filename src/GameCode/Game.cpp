@@ -7,6 +7,8 @@
 
 #include "Game.h"
 
+using namespace GAME;
+
 Game::Game(Factory* fnew, int height, int width, int gameRatenew) {
 	gameRate = gameRatenew;
 	lives = 2;
@@ -50,7 +52,7 @@ void Game::gameLoop(){
 			if(e->stop)
 				return;
 			e->clearFrame();
-			b->visualize(e,gameRate,20);
+			b->visualize(e,gameRate,20,lm->getFloaterLines());
 			if((e->getMillis() - lastTime) >= (1000/gameRate)){
 				lm->update();
 				if(pn->shooting)
@@ -156,7 +158,7 @@ void Game::stateManager(CollisionManager* cm, LineManager* lm,ExtraManager* em){
 void Game::restart(LineManager* lm){
 	b->amountMoveDown = 0;
 	b->startVisible = true;
-	b->visualize(e,gameRate,20);
+	b->visualize(e,gameRate,20,lm->getFloaterLines());
 	pn->x = 50 - pn->w/2;
 	pn->y = ((b->height - b->bottomh)/linesize)*linesize;
 	pn->dir = "Right";

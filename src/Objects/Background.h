@@ -9,6 +9,10 @@
 #define SRC_BACKGROUND_H_
 
 #include "Engine.h"
+#include <vector>
+
+namespace GAME{
+
 
 //abstract background object
 class Background {
@@ -21,10 +25,12 @@ public:
 	int amountMoveDown;
 	bool startVisible;
 	virtual ~Background();
-	virtual void visualize(Engine* e,int rate, int speed) = 0; //render the image on screen
+	virtual void visualize(Engine* e,int rate, int speed, std::vector<float> lines) = 0; //render the image on screen
 	virtual void visualizeOnlyWater(Engine* e,int rate, int speed) = 0;
 	virtual void moveDown(int linesize) = 0;
 };
+
+}
 
 #endif /* SRC_BACKGROUND_H_ */
 

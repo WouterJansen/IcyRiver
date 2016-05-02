@@ -7,6 +7,9 @@
 
 #include "Factory.h"
 
+using namespace GAME;
+
+
 Factory::Factory() {
 	// TODO Auto-generated constructor stub
 

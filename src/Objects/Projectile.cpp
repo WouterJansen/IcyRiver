@@ -7,6 +7,9 @@
 
 #include "Projectile.h"
 
+using namespace GAME;
+
+
 Projectile::Projectile() {
 	x = 100;
 	y = 100;

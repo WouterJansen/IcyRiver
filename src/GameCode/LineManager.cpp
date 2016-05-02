@@ -7,6 +7,8 @@
 
 #include "LineManager.h"
 
+using namespace GAME;
+
 LineManager::LineManager(Factory* fi,Engine* ei,Background* bgi,float linesizei)
 {
 	this->f = fi;
@@ -23,11 +25,11 @@ LineManager::~LineManager() {
 void LineManager::update(){
 
 	if(lines.empty() == true){
-		for(int i = 0;i < (bg->height - bg->bottomh)/linesize + 7; i++){
+		for(int i = 0;i < (bg->height - bg->bottomh)/linesize + 2; i++){
 			if(normalLines == 3 && floaterLines != 2){
 				float randSpeed = -3 + rand() % 6;
 				if(randSpeed == 0)randSpeed = -1;
-				Line* line = f->createLine((float)i*linesize - (7*linesize),1,(float)randSpeed/10);
+				Line* line = f->createLine((float)i*linesize - (2*linesize),1,(float)randSpeed/10);
 				lines.push_back(line);
 				floaterLines++;
 			}else if(normalLines == 3 && floaterLines == 2){
@@ -35,13 +37,13 @@ void LineManager::update(){
 				if(randSpeed == 0)randSpeed = -1;
 				normalLines = 1;
 				floaterLines = 0;
-				Line* line = f->createLine((float)i*linesize - (7*linesize),0,(float)randSpeed/10);
+				Line* line = f->createLine((float)i*linesize - (2*linesize),0,(float)randSpeed/10);
 				lines.push_back(line);
 			}else{
 				normalLines++;
 				float randSpeed = -3 + rand() % 6;
 				if(randSpeed == 0)randSpeed = -1;
-				Line* line = f->createLine((float)i*linesize - (7*linesize),0,(float)randSpeed/10);
+				Line* line = f->createLine((float)i*linesize - (2*linesize),0,(float)randSpeed/10);
 				lines.push_back(line);
 			}
 		}
@@ -50,28 +52,28 @@ void LineManager::update(){
 		for(int unsigned j = 0;j <= lines.size() - 1; j++){
 			ObstructionSpawner(lines[j]);
 		}
-		if(lines.size() < (bg->height - bg->bottomh)/linesize + 6){
-			if(normalLines == 3 && floaterLines != 2){
-				float randSpeed = -3 + rand() % 6;
-				if(randSpeed == 0)randSpeed = -1;
-				Line* line = f->createLine((float)(lines.front()->y - linesize),1,(float)randSpeed/10);
-				lines.push_front(line);
-				floaterLines++;
-			}else if(normalLines == 3 && floaterLines == 2){
-				float randSpeed = -3 + rand() % 6;
-				if(randSpeed == 0)randSpeed = -1;
-				normalLines = 1;
-				floaterLines = 0;
-				Line* line = f->createLine((float)(lines.front()->y - linesize),0,(float)randSpeed/10);
-				lines.push_front(line);
-			}else{
-				normalLines++;
-				float randSpeed = -5 + rand() % 10;
-				if(randSpeed == 0)randSpeed = -5;
-				Line* line = f->createLine((float)(lines.front()->y - linesize),0,(float)randSpeed/10);
-				lines.push_front(line);
-			}
-		}
+		//		if(lines.size() < (bg->height - bg->bottomh)/linesize + 6){
+		//			if(normalLines == 3 && floaterLines != 2){
+		//				float randSpeed = -3 + rand() % 6;
+		//				if(randSpeed == 0)randSpeed = -1;
+		//				Line* line = f->createLine((float)(lines.front()->y - linesize),1,(float)randSpeed/10);
+		//				lines.push_front(line);
+		//				floaterLines++;
+		//			}else if(normalLines == 3 && floaterLines == 2){
+		//				float randSpeed = -3 + rand() % 6;
+		//				if(randSpeed == 0)randSpeed = -1;
+		//				normalLines = 1;
+		//				floaterLines = 0;
+		//				Line* line = f->createLine((float)(lines.front()->y - linesize),0,(float)randSpeed/10);
+		//				lines.push_front(line);
+		//			}else{
+		//				normalLines++;
+		//				float randSpeed = -5 + rand() % 10;
+		//				if(randSpeed == 0)randSpeed = -5;
+		//				Line* line = f->createLine((float)(lines.front()->y - linesize),0,(float)randSpeed/10);
+		//				lines.push_front(line);
+		//			}
+		//		}
 	}
 }
 
@@ -153,5 +155,20 @@ void LineManager::moveDown(){
 		lines[i]->y += linesize;
 	}
 	if(!bg->startVisible)
-		lines.pop_back();
+		//lines.pop_back();
+		for(int unsigned i = 0;i <= lines.size() - 1; i++){
+			if(fabs(lines[i]->y - 93.75) < 0.001)
+				lines[i]->y = 0;
+		}
+}
+
+std::vector<float> LineManager::getFloaterLines(){
+	std::vector<float> lineHeights;
+	if(lines.empty() == false){
+		for(int unsigned i = 0;i <= lines.size() - 1; i++){
+			if(lines[i]->type == 1)
+				lineHeights.push_back(lines[i]->y);
+		}
+	}
+	return lineHeights;
 }

@@ -7,6 +7,9 @@
 
 #include "Penguin.h"
 
+using namespace GAME;
+
+
 Penguin::Penguin() {
 	x = 0;
 	y = 0;
@@ -52,16 +55,16 @@ void Penguin::move(std::string dir, std::string dirM,float speed){
 
 void Penguin::moveProjectile(){
 	if(shootDir == "Up"){
-		p->y -= 0.5;
+		p->y -= 0.25;
 	}
 	if(shootDir == "Down"){
-		p->y += 0.5;
+		p->y += 0.25;
 	}
 	if(shootDir == "Right"){
-		p->x += 0.5;
+		p->x += 0.25;
 	}
 	if(shootDir == "Left"){
-		p->x -= 0.5;
+		p->x -= 0.25;
 	}
 	if(p->x <= -10 || p->x >= 100 || p->y <= -10 || p->y >= 90){
 		shooting = false;
