@@ -9,7 +9,7 @@
 #define SRC_BACKGROUNDSDL_H_
 
 #include "../Objects/Background.h"
-#include "../GameCode/LineManager.h"
+#include "../Objects/LineManager.h"
 #include "../Objects/Engine.h"
 #include <locale>
 #include <sstream>
@@ -27,9 +27,9 @@ namespace SDLGAME{
 class BackgroundSDL : public GAME::Background {
 public:
 	BackgroundSDL();
-	void visualize(GAME::Engine* e,int rate, int speed,std::vector<float> lines); //render the image on screen
-	void visualizeOnlyWater(GAME::Engine* e,int rate, int speed);
-	void moveDown(int linesize);
+	void visualize(GAME::Engine* e,int rate, int speed,std::vector<float> lines); //render the background on screen
+	void visualizeOnlyWater(GAME::Engine* e,int rate, int speed); // Render the background but only water.
+	void moveDown(int linesize); // Move the background down one size.
 	virtual ~BackgroundSDL();
 };
 

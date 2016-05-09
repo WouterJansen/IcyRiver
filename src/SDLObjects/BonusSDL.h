@@ -13,11 +13,12 @@
 
 namespace SDLGAME{
 
+//Bonus object. Provides player with 10 extra points.
 class BonusSDL : public GAME::Bonus {
 public:
 	BonusSDL();
 	virtual ~BonusSDL();
-	void visualize(GAME::Engine* e, int gameRate);
+	void visualize(GAME::Engine* e, int gameRate); // Render the bonus to the screen.
 };
 
 }

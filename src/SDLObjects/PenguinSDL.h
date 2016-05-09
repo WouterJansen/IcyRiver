@@ -15,11 +15,13 @@
 
 namespace SDLGAME{
 
+
+//penguin object. Its the object that will be the player.
 class PenguinSDL : public GAME::Penguin{
 public:
 	PenguinSDL();
 	virtual ~PenguinSDL();
-	void visualize(GAME::Engine* e);
+	void visualize(GAME::Engine* e); // render the penguin.
 };
 
 }

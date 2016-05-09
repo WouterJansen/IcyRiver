@@ -20,6 +20,7 @@
 
 namespace GAME{
 
+//Abstract object of the abstract factory. It helps create the different possible objects of the game.
 class Factory {
 public:
 	Factory();

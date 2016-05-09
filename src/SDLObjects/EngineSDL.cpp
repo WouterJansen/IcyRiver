@@ -16,8 +16,6 @@ EngineSDL::EngineSDL(){
 	win  = 0;
 	fontSmall = 0;
 	fontLarge = 0;
-	fontSmallSize = 6.25;
-	fontLargeSize = 10;
 }
 
 EngineSDL::~EngineSDL() {
@@ -345,29 +343,6 @@ void EngineSDL::renderTexture(const std::string &file, float x, float y,float w,
 		std::cout << "ENGINE:" << getMillis() << " Error: Texture '" << file << "' not found." << std::endl;
 	}
 }
-
-//load a texture from the memory and render it.
-void EngineSDL::renderTextureTransformed(const std::string &file, float x, float y,float w, float h,bool flip){
-	SDL_Rect dst;
-	std::vector<float> array = transform(x,y,float(w),float(h));
-
-	dst.x = array[0]; //set x coordinate
-	dst.y = array[1]; //set y coordinate
-	dst.w = array[2]; //set width
-	dst.h = array[3]; //set height
-	std::cout << "x:" << x << " y:" << y << " w:" << w << " h:" << h << " xt:" << array[0] << " yt:" << array[1] << " wt:"<< array[2] << " ht:"<< array[3] << std::endl;
-	std::map<std::string,SDL_Texture*>::iterator it;
-	it = texBuf.find(file.c_str());
-	if(it != texBuf.end()){
-		if(flip)
-			SDL_RenderCopyEx(ren, it->second, NULL, &dst, NULL, NULL, SDL_FLIP_HORIZONTAL);// copy the texture to the renderer
-		else
-			SDL_RenderCopy(ren,it->second, NULL, &dst); // copy the texture to the renderer
-	}else{
-		std::cout << "ENGINE:" << getMillis() << " Error: Texture '" << file << "' not found." << std::endl;
-	}
-}
-
 
 //Similar to function above we can use this function to render animated images.
 //Using the partial filename, the extention, the coordinates,

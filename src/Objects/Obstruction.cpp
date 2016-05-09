@@ -9,6 +9,7 @@
 
 using namespace GAME;
 
+//abstract obstruction object. Its the object that will be floating on the water.
 Obstruction::Obstruction() {
 	x = 100;
 	y = 100;
@@ -20,7 +21,10 @@ Obstruction::~Obstruction() {
 	// TODO Auto-generated destructor stub
 }
 
+
+// Sets the texture variation random.
 void Obstruction::setVariation(int type){
+	// go through the folder of possible textures and make a list of all possible ones.
 	std::vector<std::string> names;
 	std::string folder = "textures";
 	char search_path[200];
@@ -32,10 +36,10 @@ void Obstruction::setVariation(int type){
 
 			if(! (fd.dwFileAttributes & FILE_ATTRIBUTE_DIRECTORY) ) {
 				std::string result = fd.cFileName;
-				if(type == 1){
+				if(type == 1){ // if the line belongs to the floater type.
 					if(result.find("floater",0) != std::string::npos)
 						names.push_back("./textures/" + result);
-				}else{
+				}else{ // if the line belongs to the obstruction type.
 					if(result.find("obstructor",0) != std::string::npos)
 						names.push_back("./textures/" + result);
 				}
@@ -43,6 +47,6 @@ void Obstruction::setVariation(int type){
 		}while(::FindNextFile(hFind, &fd));
 		::FindClose(hFind);
 	}
-	int randIndex = rand() % names.size();
+	int randIndex = rand() % names.size(); // pick a random texture out of the possible ones.
 	variant = names[randIndex];
 }

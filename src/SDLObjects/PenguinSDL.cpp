@@ -9,7 +9,7 @@
 
 using namespace SDLGAME;
 
-
+// Penguin object. Its the object that will be the player.
 PenguinSDL::PenguinSDL() {
 	// TODO Auto-generated constructor stub
 
@@ -19,8 +19,10 @@ PenguinSDL::~PenguinSDL() {
 	// TODO Auto-generated destructor stub
 }
 
+// render the penguin.
 void PenguinSDL::visualize(GAME::Engine* e){
 	e->getSize("./textures/penguin_forward_water.png",x,y,&w,&h);
+	//if the penguin is in the water, use the correct images.
 	if(floating == false){
 		if(dir == "Up")
 			e->renderTexture("./textures/penguin_forward_water.png", x, y, w, h,false);

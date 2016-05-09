@@ -18,11 +18,12 @@
 
 namespace SDLGAME{
 
+//obstruction object. Its the object that will be floating on the water.
 class ObstructionSDL : public GAME::Obstruction{
 public:
 	ObstructionSDL();
 	virtual ~ObstructionSDL();
-	void visualize(GAME::Engine* e,bool flip);
+	void visualize(GAME::Engine* e,bool flip); // Render the obstruction to screen.
 };
 
 }

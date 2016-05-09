@@ -14,7 +14,6 @@ Background::Background() {
 	state = 1;
 	lastTime = 0;
 	bottomh = 80;
-	height = 100;
 	amountMoveDown = 0;
 	startVisible = true;
 }

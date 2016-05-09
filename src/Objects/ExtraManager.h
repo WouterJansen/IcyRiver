@@ -17,6 +17,8 @@
 
 namespace GAME{
 
+//Management object that has functionality to take care of the spawning,despawning and visualizing of the extra objects.
+//These are the bonus, extra life and extra projectiles.
 class ExtraManager {
 public:
 	ExtraManager(Factory* fi,Engine* ei,Background* bgi,int gameRatei, float linesizei);
@@ -28,12 +30,12 @@ public:
 	Projectile* p;
 	float linesize;
 	int gameRate;
-	Uint32 timeVisible;
+	Uint32 timeVisible; // amount of time a extra has been visible on screen.
 	virtual ~ExtraManager();
-	void update(int lives, int projectiles);
-	void reset();
-	void displayExtras(int lives, int projectiles);
-	void moveDown();
+	void update(int lives, int projectiles); // Update and spawn/despawn the extras.
+	void reset(); // reset the positions of the extras.
+	void displayExtras(int lives, int projectiles); // display the status of the extras on the GUI.
+	void moveDown(); // Move the extras down when the screen is moved downwards.
 };
 
 }

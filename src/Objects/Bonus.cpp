@@ -9,7 +9,7 @@
 
 using namespace GAME;
 
-
+//abstract extra bonus object. Provides player with 10 extra points.
 Bonus::Bonus() {
 	x = 0;
 	y = 0;

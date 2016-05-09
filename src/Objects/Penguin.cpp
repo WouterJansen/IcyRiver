@@ -9,7 +9,7 @@
 
 using namespace GAME;
 
-
+//abstract penguin object. Its the object that will be the player.
 Penguin::Penguin() {
 	x = 0;
 	y = 0;
@@ -21,7 +21,6 @@ Penguin::Penguin() {
 	timesUp= 0;
 	timesDown = 0;
 	dir = "Right";
-	shootDir = "";
 	p = 0;
 	floating = true;
 }
@@ -30,10 +29,12 @@ Penguin::~Penguin() {
 	delete(p);
 }
 
+// add a projectile to the penguin's projectile slot.
 void Penguin::addProjectile(Projectile* proj){
 	p = proj;
 }
 
+// move the player's penguin.
 void Penguin::move(std::string dir, std::string dirM,float speed){
 	this->dir = dir;
 	if(dirM == "Up"){
@@ -53,19 +54,21 @@ void Penguin::move(std::string dir, std::string dirM,float speed){
 		x += speed;
 }
 
+// move the projectile when it's being fired.
 void Penguin::moveProjectile(){
-	if(shootDir == "Up"){
+	if(p->shootDir == "Up"){
 		p->y -= 0.25;
 	}
-	if(shootDir == "Down"){
+	if(p->shootDir == "Down"){
 		p->y += 0.25;
 	}
-	if(shootDir == "Right"){
+	if(p->shootDir == "Right"){
 		p->x += 0.25;
 	}
-	if(shootDir == "Left"){
+	if(p->shootDir == "Left"){
 		p->x -= 0.25;
 	}
+	// if projectile goes out of screen.
 	if(p->x <= -10 || p->x >= 100 || p->y <= -10 || p->y >= 90){
 		shooting = false;
 	}

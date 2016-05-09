@@ -8,7 +8,7 @@
 #ifndef SRC_START_H_
 #define SRC_START_H_
 
-#include "./GameCode/Game.h"
+#include "./Objects/Game.h"
 #include "./Objects/Factory.h"
 #include "./SDLObjects/FactorySDL.h"
 #include "Resources.h"

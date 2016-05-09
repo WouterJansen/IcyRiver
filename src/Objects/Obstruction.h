@@ -18,19 +18,18 @@
 
 namespace GAME{
 
-
-
+//abstract obstruction object. Its the object that will be floating on the water.
 class Obstruction{
 public:
 	Obstruction();
-	float x;
-	float y;
-	float w;
-	float h;
-	std::string variant;
+	float x; // X Coordinate of the Object.
+	float y; // Y Coordinate of the Object.
+	float w; // Width of the Object.
+	float h; // Height of the Object.
+	std::string variant; // Sets the name of the texture variant of the obstruction.
 	virtual ~Obstruction();
-	virtual void visualize(Engine* e, bool flip) = 0;
-	void setVariation(int type);
+	virtual void visualize(Engine* e, bool flip) = 0; // Render the obstruction to screen.
+	void setVariation(int type); // Sets the texture variation random.
 };
 
 }

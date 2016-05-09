@@ -9,7 +9,7 @@
 
 using namespace GAME;
 
-
+// Object of a line containing all obstructions.
 Line::Line(float newy, int newtype, float newspeed) {
 	y = newy;
 	type = newtype;
@@ -19,6 +19,7 @@ Line::Line(float newy, int newtype, float newspeed) {
 Line::~Line() {
 }
 
+void vizualize(Engine* e); // rendering the entire line of obstructions.
 void Line::vizualize(Engine* e){
 		if(obstructions.empty() != true){
 			for (int unsigned j = 0; j < obstructions.size(); j++){
@@ -34,10 +35,12 @@ void Line::vizualize(Engine* e){
 		}
 }
 
+// Clear the line of obstructions.
 void Line::clear(){
 	obstructions.clear();
 }
 
+// Move all obstructions in this line at the speed of the line.
 void Line::move(){
 	if( obstructions.empty() != true){
 		for (int unsigned i = 0; i < obstructions.size(); ++i){

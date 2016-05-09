@@ -9,6 +9,7 @@
 
 using namespace GAME;
 
+//abstract extra bonus object. Provides player with an extra life.
 Life::Life() {
 	x = 0;
 	y = 0;

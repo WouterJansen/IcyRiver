@@ -15,18 +15,18 @@
 
 namespace GAME{
 
-
+// Object of a line containing all obstructions.
 class Line {
 public:
 	Line(float newy, int newtype, float newspeed);
-	std::deque<Obstruction*> obstructions;
-	float y;
-	int type;
-	float speed;
+	std::deque<Obstruction*> obstructions; // Deque of obstruction objects.
+	float y; // Current height of the line.
+	int type; // Type: 0 = obstruction(ice or animal), 1 = floater (log)
+	float speed; // Current speed of the line.
 	virtual ~Line();
-	void vizualize(Engine* e);
-	void clear();
-	void move();
+	void vizualize(Engine* e); // rendering the entire line of obstructions.
+	void clear(); // Clear the line of obstructions.
+	void move(); // Move all obstructions in this line at the speed of the line.
 };
 
 }

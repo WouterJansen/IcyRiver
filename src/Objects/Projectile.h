@@ -18,16 +18,17 @@
 
 namespace GAME{
 
-
+//abstract penguin object. Its the object that can be fired by the player and destroy obstruction objects.
 class Projectile {
 public:
 	Projectile();
-	float x;
-	float y;
-	float w;
-	float h;
-	virtual void visualize(Engine* e) = 0;
-	virtual void displayProjectile(Engine* e, float xi, float yi) = 0;
+	float x; // X Coordinate of the Object.
+	float y; // Y Coordinate of the Object.
+	float w; // width of the Object.
+	float h; // height of the Object.
+	std::string shootDir; // direction of the projectile being shot.
+	virtual void visualize(Engine* e) = 0; // visualize the projectile on screen.
+	virtual void displayProjectile(Engine* e, float xi, float yi) = 0; // display the projectile on the GUI.
 	virtual ~Projectile();
 };
 

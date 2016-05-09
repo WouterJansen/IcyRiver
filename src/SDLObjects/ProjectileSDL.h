@@ -18,12 +18,13 @@
 
 namespace SDLGAME{
 
+//abstract penguin object. Its the object that can be fired by the player and destroy obstruction objects.
 class ProjectileSDL : public GAME::Projectile{
 public:
 	ProjectileSDL();
 	void visualize(GAME::Engine* e);
-	void displayProjectile(GAME::Engine* e,float xi, float yi);
-	virtual ~ProjectileSDL();
+	void displayProjectile(GAME::Engine* e,float xi, float yi); // visualize the projectile on screen.
+	virtual ~ProjectileSDL(); // display the projectile on the GUI.
 };
 
 }

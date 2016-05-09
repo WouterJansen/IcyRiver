@@ -27,6 +27,7 @@
 namespace SDLGAME{
 
 
+// Object of the abstract factory. It helps create the different possible objects of the game
 class FactorySDL : public GAME::Factory {
 public:
 	FactorySDL();

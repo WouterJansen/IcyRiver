@@ -24,11 +24,11 @@ class CollisionManager {
 public:
 	CollisionManager();
 	virtual ~CollisionManager();
-	bool searchCollision(LineManager* lm,Penguin* pn);// Compares position and size of player object and the obstructions and looks for collision.
-	bool searchProjectileCollision(Projectile* p,LineManager* lm);
-	int searchCollisionExtras(Penguin* pn,ExtraManager* em);
+	bool searchCollision(LineManager* lm,Penguin* pn); // Compares position and size of player object and the obstructions and looks for collision.
+	bool searchProjectileCollision(Projectile* p,LineManager* lm); // Compares position and size of player object and the projectiles and looks for collision.
+	int searchCollisionExtras(Penguin* pn,ExtraManager* em); // Compares position and size of player object and the extras(bonus,lives,projectiles) and looks for collision.
 	float lineChecker(Line* line,Penguin* pn); //checks a line for collision with the player.
-	bool lineChecker(Line* line,Projectile* p); //checks a line for collision with projectile.
+	bool lineChecker(Line* line,Projectile* p); //checks a line for collision with a projectile.
 };
 
 #endif /* COLLISIONMANAGER_H_ */

@@ -52,7 +52,6 @@ public:
 	void playSound(const std::string &file, int times); //load a sound effect from the memory and play it.
 	void renderText(const std::string &message, float x, float y, Uint8 color[], int size, std::string outline);
 	void renderTexture(const std::string &file, float x, float y, float w, float h, bool flip); //load a texture from the memory and render it.
-	void renderTextureTransformed(const std::string &file, float x, float y, float w, float h,bool flip);
 	Uint32 renderTextureAnimated(const std::string &file,const std::string &extention, float x, float y, float w, float h, Uint32 lastTime, int *i,int rate, int max, int speed); //load a texture (from an animated series) from memory and render it.
 	Uint32 renderTextureAnimatedTiled(const std::string &file,const std::string &extention, float x, float y, float totalw, float totalh, float w, float h, Uint32 lastTime, int *i,int rate, int max, int speed); //load a texture (from an animated series) from memory and render it for a tiled animation.
 	void getSize(const std::string &file, float x, float y,float *w, float *h); //get the size(width and height) of a image and save it in the w and h pointers of the object.

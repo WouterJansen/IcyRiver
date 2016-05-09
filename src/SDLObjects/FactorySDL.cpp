@@ -9,7 +9,7 @@
 
 using namespace SDLGAME;
 
-
+// Object of the abstract factory. It helps create the different possible objects of the game
 FactorySDL::FactorySDL() {
 	// TODO Auto-generated constructor stub
 
