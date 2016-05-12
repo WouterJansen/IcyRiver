@@ -40,13 +40,13 @@ public:
 	std::map<std::string,Mix_Music*> musicBuf; //buffer where all music files are saved. They are key-mapped by filename.
 	std::map<std::string,SDL_Texture*> texBuf; //buffer where all textures are saved. They are key-mapped by filename.
 	int newWindow(int width, int height); //create a new SDL window. Parameters are for it's size.
-	void loadFonts();
+	void loadFonts(); // Load all fonts in the right size.
 	void preloadSounds();//search for all sounds in the Sounds folder and load them into memory ready to be used.
 	void preloadTextures();//search for all textures in the Textures folder and load them into memory ready to be used.
 	Uint32 getMillis(); //get current time since start of SDL initialization.
 	void logError(std::ostream &os, const std::string &msg); //Console print function to print out SDL errors.
-	void increaseResolution();
-	void decreaseResolution();
+	void increaseResolution(); // Increase the window resolution.
+	void decreaseResolution(); // decrease the window resolution.
 	std::string Poll(); //search the buffer for what key is possibly being pressed and return it.
 	void playMusic(const std::string &file, int times); //load a music sound from the memory and play it.
 	void playSound(const std::string &file, int times); //load a sound effect from the memory and play it.

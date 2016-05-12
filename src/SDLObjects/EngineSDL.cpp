@@ -96,6 +96,7 @@ int EngineSDL::newWindow(int iwidth, int iheight){
 	return 0;
 }
 
+// Load all fonts in the right size.
 void EngineSDL::loadFonts(){
 	std::string fontName="./fonts/Minecraft.ttf";
 	fontSmall = TTF_OpenFont(fontName.c_str(), height/16);
@@ -212,6 +213,7 @@ void EngineSDL::logError(std::ostream &os, const std::string &msg){
 	os << "ENGINE:" << getMillis() << " Error: " << msg << SDL_GetError() << std::endl;
 }
 
+// Increase the window resolution.
 void EngineSDL::increaseResolution(){
 	RECT desktop;
 	GetWindowRect(GetDesktopWindow(), &desktop);
@@ -226,6 +228,7 @@ void EngineSDL::increaseResolution(){
 	}
 }
 
+// decrease the window resolution.
 void EngineSDL::decreaseResolution(){
 	if(width > 128){
 		width -= 12;

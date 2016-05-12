@@ -30,7 +30,7 @@ Game::Game(Factory* fnew, int height, int width, int gameRatenew) {
 	pn->addProjectile(f->createProjectile());
 	e->newWindow(width, height);
 
-	lm = new LineManager(f,e,b,linesize); // Creating all seperate manager objects.
+	lm = new LineManager(f,e,b,linesize); // Creating all separate manager objects.
 	cm = new CollisionManager();
 	em = new ExtraManager(f,e,b,gameRate,linesize);
 
@@ -193,8 +193,8 @@ void Game::start(){
 			//render logo and animated penguin.
 			e->getSize("./textures/logo.png",0,0,&w,&h);
 			e->renderTexture("./textures/logo.png", 50-(w/2), 10, w, h,false);
-			Uint8 color[] = {0,0,0,255};
-			e->renderText("Press ENTER to start",50,90,color,0,"centre");
+			Uint8 black[] = {0,0,0,255};
+			e->renderText("Press ENTER to start",50,90,black,0,"centre");
 			e->getSize("./textures/penguin_dance_1.png",0,0,&w,&h);
 			lastTime = e->renderTextureAnimated("./textures/penguin_dance_",".png", 50 - w/2, 50 - h/2, w, h, lastTime,&state, gameRate, 20, 4);
 			e->renderFrame();
@@ -234,14 +234,14 @@ void Game::lose(){
 		float h;
 		e->getSize("./textures/logo.png",0,0,&w,&h);
 		e->renderTexture("./textures/logo.png", 50-(w/2), 10, w, h,false);
-		Uint8 color[] = {0,0,0,255};
+		Uint8 black[] = {0,0,0,255};
 
 		if(show){ // if highscore state is triggered, render highscores.
 			showHighscores();
 		}else{ // if not render the LOSS text.
-			e->renderText("WASTED",50,50,color,1,"centre");
-			e->renderText("Press ENTER to restart",50,60,color,0,"centre");
-			e->renderText("Press SPACEBAR to view highscores",50,80,color,0,"centre");
+			e->renderText("WASTED",50,50,black,1,"centre");
+			e->renderText("Press ENTER to restart",50,60,black,0,"centre");
+			e->renderText("Press SPACEBAR to view highscores",50,80,black,0,"centre");
 			std::string t = e->Poll();
 			if(t == "Space") // if SPACE is pressed, trigger highscore.
 				show = true;
@@ -321,8 +321,8 @@ void Game::addHighscore(){
 		float h;
 		e->getSize("./textures/logo.png",0,0,&w,&h);
 		e->renderTexture("./textures/logo.png", 50-(w/2), 10, w, h,false);
-		Uint8 color[] = {0,0,0,255};
-		Uint8 color2[] = {255,255,255,255};
+		Uint8 black[] = {0,0,0,255};
+		Uint8 white[] = {255,255,255,255};
 		std::string s = e->Poll();
 		if(show){ // if show highscore state is triggered.
 			showHighscores();
@@ -348,28 +348,28 @@ void Game::addHighscore(){
 				if(!name.empty()){
 					name.erase(name.length() -1);
 				}
-				e->renderText("NEW HIGHSCORE",50,40,color2,1,"centre");
-				e->renderText("Type your NAME and press ENTER",50,50,color,0,"centre");
+				e->renderText("NEW HIGHSCORE",50,40,white,1,"centre");
+				e->renderText("Type your NAME and press ENTER",50,50,black,0,"centre");
 				if(!name.empty()){
-					e->renderText(name,50,80,color,0,"centre");
+					e->renderText(name,50,80,black,0,"centre");
 				}
 			// If maximum name size of 10 is reached, don't allow new addition and display error message.
 			}else if(name.size() == 10){
-				e->renderText("NEW HIGHSCORE",50,40,color2,1,"centre");
-				e->renderText("Type your NAME and press ENTER",50,50,color,0,"centre");
+				e->renderText("NEW HIGHSCORE",50,40,white,1,"centre");
+				e->renderText("Type your NAME and press ENTER",50,50,black,0,"centre");
 				if(!name.empty()){
-					e->renderText(name,50,80,color,0,"centre");
+					e->renderText(name,50,80,black,0,"centre");
 				}
-				e->renderText("Name can only be 10 characters long!",50,90,color,0,"centre");
+				e->renderText("Name can only be 10 characters long!",50,90,black,0,"centre");
 			// If none of the above, add the new letter to the name.
 			}else{
 				if(s.size() == 1){
 					name += s;
 				}
-				e->renderText("NEW HIGHSCORE",50,40,color2,1,"centre");
-				e->renderText("Type your NAME and press ENTER",50,50,color,0,"centre");
+				e->renderText("NEW HIGHSCORE",50,40,white,1,"centre");
+				e->renderText("Type your NAME and press ENTER",50,50,black,0,"centre");
 				if(!name.empty()){
-					e->renderText(name,50,80,color,0,"centre");
+					e->renderText(name,50,80,black,0,"centre");
 				}
 			}
 		}
@@ -395,7 +395,7 @@ bool Game::compareHighscore(){
 // Display highscores on screen.
 void Game::showHighscores(){
 	int i = 0;
-	Uint8 color[] = {0,0,0,255};
+	Uint8 black[] = {0,0,0,255};
 	Uint8 white[] = {255,255,255,255};
 	e->renderText("#",5,40,white,0,"left");
 	e->renderText("NAME",10,40,white,0,"left");
@@ -405,12 +405,12 @@ void Game::showHighscores(){
 	for (std::map<int,std::string>::reverse_iterator it = highscores.rbegin() ; it != highscores.rend(); ++it){
 		std::string StringIntScore = static_cast<std::ostringstream*>( &(std::ostringstream() << it->first) )->str();
 		std::string StringInt = static_cast<std::ostringstream*>( &(std::ostringstream() << i+1) )->str(); // turn the intiger into a string
-		e->renderText(StringInt,5,50+(i*(e->fontSmallSize+1)),color,0,"left");
-		e->renderText(it->second,10,50+(i*(e->fontSmallSize+1)),color,0,"left");
-		e->renderText(StringIntScore,95,50+(i*(e->fontSmallSize+1)),color,0,"Right");
+		e->renderText(StringInt,5,50+(i*(e->fontSmallSize+1)),black,0,"left");
+		e->renderText(it->second,10,50+(i*(e->fontSmallSize+1)),black,0,"left");
+		e->renderText(StringIntScore,95,50+(i*(e->fontSmallSize+1)),black,0,"Right");
 		i++;
 	}
-	e->renderText("Press ENTER to restart",50,90,color,0,"centre");
+	e->renderText("Press ENTER to restart",50,90,black,0,"centre");
 }
 
 
