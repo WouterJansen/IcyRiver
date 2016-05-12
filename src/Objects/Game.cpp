@@ -57,7 +57,7 @@ void Game::gameLoop(){
 				return;
 			e->clearFrame(); // clear the renderer.
 			b->visualize(e,gameRate,20,lm->getFloaterLines()); // visualize the background.
-			if((e->getMillis() - lastTime) >= (1000/gameRate)){ // See if tickrate is reached yet since lasttime.
+			if((e->getMillis() - lastTime) >= (unsigned)(1000/gameRate)){ // See if tickrate is reached yet since lasttime.
 				lastTime = e->getMillis();
 				lm->update(); // Update all lines.
 				if(pn->shooting){// if the penguin state is shooting a projectile, this projectile has to be moved each tickrate.

@@ -9,6 +9,7 @@
 #define SRC_WINDOWSDL_H_
 
 #include "../Objects/Engine.h"
+#include <cstddef>
 #include <iostream>
 #include "SDL2/SDL.h"
 #include "SDL2/SDL_image.h"

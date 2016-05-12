@@ -339,7 +339,7 @@ void EngineSDL::renderTexture(const std::string &file, float x, float y,float w,
 	it = texBuf.find(file.c_str());
 	if(it != texBuf.end()){
 		if(flip)
-			SDL_RenderCopyEx(ren, it->second, NULL, &dst, NULL, NULL, SDL_FLIP_HORIZONTAL);// copy the texture to the renderer
+			SDL_RenderCopyEx(ren, it->second, NULL, &dst, 0, NULL, SDL_FLIP_HORIZONTAL);// copy the texture to the renderer
 		else
 			SDL_RenderCopy(ren,it->second, NULL, &dst); // copy the texture to the renderer
 	}else{
@@ -367,7 +367,7 @@ Uint32 EngineSDL::renderTextureAnimated(const std::string &file,const std::strin
 	if(it != texBuf.end()){
 		SDL_RenderCopy(ren,it->second, NULL, &dst); // copy the texture to the renderer
 		Uint32 t = getMillis(); // get current time
-		if( (t - lastTime) >= ((1000/rate)*speed)){ // if the time since last render of the animation isn't long enouph, then wait until it's time to render next animation image.
+		if( (t - lastTime) >= ((1000/rate)* (unsigned)speed)){ // if the time since last render of the animation isn't long enouph, then wait until it's time to render next animation image.
 			if(*i == max) // once all images of animation as been rendered, start over
 				*i = 1; // set the given state pointer back to 1.
 			else
@@ -406,7 +406,7 @@ Uint32 EngineSDL::renderTextureAnimatedTiled(const std::string &file,const std::
 			}
 		}
 		Uint32 t = getMillis(); // get current time
-		if( (t - lastTime) >= ((1000/rate)*speed)){ // if the time since last render of the animation isn't long enouph, then wait until it's time to render next animation image.
+		if( (t - lastTime) >= ((1000/rate)*(unsigned)speed)){ // if the time since last render of the animation isn't long enouph, then wait until it's time to render next animation image.
 			if(*i == max) // once all images of animation as been rendered, start over
 				*i = 1; // set the given state pointer back to 1.
 			else

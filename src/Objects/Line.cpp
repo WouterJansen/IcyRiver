@@ -19,7 +19,7 @@ Line::Line(float newy, int newtype, float newspeed) {
 Line::~Line() {
 }
 
-void vizualize(Engine* e); // rendering the entire line of obstructions.
+// rendering the entire line of obstructions.
 void Line::vizualize(Engine* e){
 		if(obstructions.empty() != true){
 			for (int unsigned j = 0; j < obstructions.size(); j++){
